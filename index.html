@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<HTML manifest="cache.appcache">
+<head>
+<!--웹 기본설정 : 타이틀, 바로가기 아이콘(only아이폰), Text_Type, Viewprot-->
+	<title>빈 강의실 찾기</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi">
+	
+	<link rel="apple-touch-icon-precomposed" href="img/icon.png"><!--아이폰 아이콘-->
+	<meta name="apple-mobile-web-app-capable" content="yes"><!--아아폰 전체화면-->
+	<link rel="apple-touch-startup-image" href="img/splash.png"><!--아이폰 스플래쉬 스크린-->
+	
+	<script type="text/javascript">
+		//주소창 숨김코드
+		 window.addEventListener("load", function(){
+			 setTimeout(scrollTo, 0, 0, 1)
+		}, false);
+	</script>
+
+	
+<!--CSS Style-->
+	<link rel='stylesheet' href='css/main.css' type='text/css'/>
+	
+<!--Java Script-->
+	<script type='text/javascript' src='js/lib/jindo.all.ns.js'></script>
+	<script type='text/javascript' src='js/lib/jindo_mobile_component.js'></script>
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true&language=ko"></script>
+
+	<script type='text/javascript' src='js/main.js'></script>
+	
+	<!--Utility-->
+	<script type='text/javascript' src='js/utility/search.js'></script>
+	<script type='text/javascript' src="js/utility/getTime.js"></script>
+	<script type='text/javascript' src="js/utility/googleMapInitialize.js"></script>
+	
+	
+	<!--View-->
+	<script type='text/javascript' src='js/define_view.js'></script>
+	<script type='text/javascript' src='js/view_manager.js'></script>
+	<script type='text/javascript' src='js/view.js'></script>
+	
+	<script type='text/javascript' src='js/view/view_favorite.js'></script>
+	<script type='text/javascript' src='js/view/view_about.js'></script>
+	<script type='text/javascript' src='js/view/view_search.js'></script>
+	<script type='text/javascript' src='js/view/view_map.js'></script>
+	<script type='text/javascript' src='js/view/view_link.js'></script>	
+	<script type='text/javascript' src='js/view/view_result.js'></script>	
+	
+	<!--Building Data ( JSON ) -->
+	<script type='text/javascript' src='js/data/buildingObj_1.js'></script><!--7호관-->
+	<script type='text/javascript' src='js/data/buildingObj_2.js'></script><!--경상관-->
+	<script type='text/javascript' src='js/data/buildingObj_3.js'></script><!--공학관-->
+	<script type='text/javascript' src='js/data/buildingObj_4.js'></script><!--과학관-->
+	<script type='text/javascript' src='js/data/buildingObj_5.js'></script><!--국제관-->
+	<script type='text/javascript' src='js/data/buildingObj_6.js'></script><!--법학관-->
+	<script type='text/javascript' src='js/data/buildingObj_7.js'></script><!--복지관-->
+	<script type='text/javascript' src='js/data/buildingObj_8.js'></script><!--북악관-->
+	<script type='text/javascript' src='js/data/buildingObj_9.js'></script><!--예술관-->
+	<script type='text/javascript' src='js/data/buildingObj_10.js'></script><!--조형관-->
+	<script type='text/javascript' src='js/data/buildingObj_11.js'></script><!--체육관-->
+	<script type='text/javascript' src='js/data/buildingObj_12.js'></script><!--형설관-->	
+</head>
+
+<!--BODY가 로딩 완료되면 MIAN 객체의 onLoad() 메소드를 호출합니다. 제일 처음 호출되는 객체입니다-->
+<body onload="loaded();">
+	<nav>
+		<ul id = "menu">
+			<!--li class="cls-nav-slt"><img src="img/menu.png" height="100%" ></li>
+			<li class="cls-nav"><img src="img/menu_search.png" height="100%" ></li>
+			<li class="cls-nav"><img src="img/menu_gps.png"  height="100%" ></li>
+			<li class="cls-nav"><img src="img/menu_convenient.png"  height="100%" ></li>
+			<li class="cls-nav"><img src="img/menu_about.png" height="100%"></li-->
+			<li class="cls-nav-slt"><div></div></li>
+			<li class="cls-nav"><div></div></li>
+			<li class="cls-nav"><div></div></li>
+			<li class="cls-nav"><div></div></li>
+			<li class="cls-nav"><div></div></li>
+		</ul>
+	</nav>
+
+	<div id="view"><!-- Wrapper -->
+		<div id="scroller"><!-- Scrooller -->
+			<div id="content">
+				<!--Content-->
+			</div>
+		</div>
+	</div>
+	
+</body>
+</HTML>
+
+<!--body  onload="Main.onLoad();"-->

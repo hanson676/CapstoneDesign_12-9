@@ -1,0 +1,225 @@
+﻿@charset "utf-8";
+
+html, body {
+   height: 100%;
+   overflow: hidden;
+}
+		
+* {	margin: 0; padding: 0; border : 0;}
+*:focus { outline:none }
+ul, ol, dl { list-style-type: none; }
+
+
+/* Nav 영역 */
+nav{
+	height : 75px;
+}
+nav li{				
+	text-align: center;
+	width: 20%;
+	float: left;
+	/*border-bottom: 2px solid #666;*/
+	overflow: hidden;
+}
+	nav .cls-nav{
+		background-image: linear-gradient(bottom, rgb(56,56,56) 9%, rgb(105,105,105) 55%, rgb(71,69,71) 78%);
+		background-image: -o-linear-gradient(bottom, rgb(56,56,56) 9%, rgb(105,105,105) 55%, rgb(71,69,71) 78%);
+		background-image: -moz-linear-gradient(bottom, rgb(56,56,56) 9%, rgb(105,105,105) 55%, rgb(71,69,71) 78%);
+		background-image: -webkit-linear-gradient(bottom, rgb(56,56,56) 9%, rgb(105,105,105) 55%, rgb(71,69,71) 78%);
+		background-image: -ms-linear-gradient(bottom, rgb(56,56,56) 9%, rgb(105,105,105) 55%, rgb(71,69,71) 78%);
+
+		background-image: -webkit-gradient(
+			linear,
+			left bottom,
+			left top,
+			color-stop(0.09, rgb(56,56,56)),
+			color-stop(0.55, rgb(105,105,105)),
+			color-stop(0.78, rgb(71,69,71))
+		);
+	}
+	nav .cls-nav-slt{
+		background: #a0a0a0; /* Old browsers */
+		background: -moz-linear-gradient(top,  #a0a0a0 10%, #bcbcbc 51%, #7f7f7f 89%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(10%,#a0a0a0), color-stop(51%,#bcbcbc), color-stop(89%,#7f7f7f)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top,  #a0a0a0 10%,#bcbcbc 51%,#7f7f7f 89%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top,  #a0a0a0 10%,#bcbcbc 51%,#7f7f7f 89%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top,  #a0a0a0 10%,#bcbcbc 51%,#7f7f7f 89%); /* IE10+ */
+		background: linear-gradient(to bottom,  #a0a0a0 10%,#bcbcbc 51%,#7f7f7f 89%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a0a0a0', endColorstr='#7f7f7f',GradientType=0 ); /* IE6-9 */
+	}
+	nav div{
+		height : 75px;
+		width : 100%;
+		
+		background-size: 70px;
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+	#menu :nth-child(1) div{
+		background-image : url( ../img/menu.png);
+	}
+	#menu :nth-child(2) div{
+		background-image : url( ../img/menu_search.png);
+	}
+	#menu :nth-child(3) div{
+		background-image : url( ../img/menu_gps.png);
+	}
+	#menu :nth-child(4) div{
+		background-image : url( ../img/menu_convenient.png);
+	}
+	#menu :nth-child(5) div{
+		background-image : url( ../img/menu_about.png);
+	}
+	
+
+/* Content 영역 */	
+#view, #scroller{
+	width:100%
+}
+
+	/* 로딩화면 */
+	#door{
+		height: 100%;
+		width: 100%;
+		
+		background: url(../img/main.png);	
+		background-size : 100% 100%; 
+		-moz-background-size: 100% 100%; 
+		background-repeat: no-repeat;
+	}
+
+	/* FavoriteView */
+	#FavoriteView .cls-favoriteList{
+		 border-bottom: 1px solid #e7e7e7;
+		 padding:10px;
+		 /* height: 50px; */
+	}
+	
+	#FavoriteView .cls-favoriteList-nodata{
+		border-bottom: 1px solid #e7e7e7;
+		padding:15px;
+		text-align: center;
+	}
+
+
+	/* SearchView */
+	#SearchView .cls-buildingList{
+		border-bottom: 1px solid #e7e7e7;
+		padding: 5px;
+		/* height: 60px; */
+	}
+		#SearchView .cls-buildingList-img{
+			float: right;
+			display: table-cell;
+			vertical-align: middle;
+			padding: 5px;
+		}
+		#SearchView .cls-buildingList-fov{
+			display: table-cell;
+			float: right;    
+			vertical-align: middle;
+			padding: 3px;
+		}
+		#SearchView .cls-buildingList-text{
+			display:table-cell;
+			vertical-align:middle;
+			padding:3px
+		}
+		
+		#SearchView .cls-buildingList-text h2{
+				font-size: 24px;
+		}
+
+		#SearchView .cls-buildingList-text p{
+				font-size: 16px;
+		}
+		
+	#SearchView .cls-resultList-floor{
+		 border-bottom: 1px solid #e7e7e7;
+		 padding:10px;
+		 /* height: 50px; */
+	}
+
+	#SearchView .cls-resultTop{
+			 background-color: #EAEAEA;
+			 padding: 5px;
+			 height: 130px;
+		}
+						
+	/* ResultView */
+	#ResultView .cls-resultTop{
+		background-color: #EAEAEA;
+		padding: 5px;
+		height: 130px;
+	}
+
+
+	#ResultView .cls-resultList{
+		border-bottom: 1px solid #e7e7e7;
+		padding:15px;
+	}
+
+
+	#ResultView .cls-buildingList-text h2{
+			font-size: 22px;
+			margin : auto;
+		}
+
+		#ResultView .cls-buildingList-text p{
+			font-size: 15px;
+		}
+		
+	/* Link View */
+	a:link {
+	color: #000;
+	text-decoration: none;
+	}
+
+	a:visited {
+	text-decoration: none;
+	color: #000;
+	}
+
+	a:hover {
+	text-decoration: none;
+	color: #369;
+	}
+
+	a:active {
+	text-decoration: none;
+	color: #000;
+	}
+
+	#LinkView .cls-linkTop{
+		background-color: #EAEAEA;
+		padding:10px;
+		height: 20px;
+	}
+
+	#LinkView .cls-linkList{
+		border-bottom: 1px solid #e7e7e7;
+		padding:15px;
+	}
+	
+
+	/* About View */
+
+	#AboutView .cls-noticeList{
+		border-bottom: 1px solid #e7e7e7;
+	}
+		#AboutView .cls-noticeList .title{		
+			padding: 10px;
+			font-size: 20px;		
+			
+			white-space: nowrap;
+			overflow:hidden;
+			text-overflow: ellipsis;	
+		}
+		#AboutView .cls-noticeList .content{
+			border: 1px solid #e7e7e7;
+			
+			padding-left:15px;
+			padding-bottom:10px;
+			padding-top:10px;		
+		}
+
