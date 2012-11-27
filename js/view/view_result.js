@@ -63,7 +63,14 @@ function ResultView()
 		}
 		emptyRoom.forEach( function( v ){
 			var listElement	=	document.createElement('li');
-			var NextClassStr = "다음강의 : " +  v.NextClassName +"<br/>강의시간 : " +v.NextClassTime.substr(0,2) + "시 " + v.NextClassTime.substr(2,4)+ "분";
+			var NextClassStr = "";
+			
+			if( v.NextClassFlg == 0){
+				NextClassStr = "다음강의 없음";
+			}
+			else{
+				NextClassStr = "다음강의 : " +  v.NextClassName +"<br/>강의시간 : " +v.NextClassTime.substr(0,2) + "시 " + v.NextClassTime.substr(2,4)+ "분";
+			}
 			listTag = "<h3>" +v.classRoom_floor + leadingZeros(v.classRoom_Number, 2) + "호실</h3><p>" + NextClassStr + "</p>";
 			listElement.innerHTML = listTag;
 			listElement.className = "cls-resultList";
