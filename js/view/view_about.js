@@ -89,8 +89,10 @@ function AboutView()
 				 (target.parentElement.children[1].style.display == 'none' ) ? (target.parentElement.children[1].style.display = 'block') : (target.parentElement.children[1].style.display = 'none');
 			}
 			
-			//스크롤 갱신
-			oScroll.refresh();
+			if( diviceFlag == 1 ){
+				//scroller 갱신
+				oScroll.refresh(); 
+			}
 		}, false);
 	};
     

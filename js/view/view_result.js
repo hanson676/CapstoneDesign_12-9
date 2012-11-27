@@ -63,7 +63,7 @@ function ResultView()
 		}
 		emptyRoom.forEach( function( v ){
 			var listElement	=	document.createElement('li');
-			listTag = "<h2>" +v.classRoom_floor + leadingZeros(v.classRoom_Number, 2) + "호실</h2>";
+			listTag = "<h3>" +v.classRoom_floor + leadingZeros(v.classRoom_Number, 2) + "호실</h3><p>" + v.NextClassTime + "</p>";
 			listElement.innerHTML = listTag;
 			listElement.className = "cls-resultList";
 			selectorObject[RESULT_LIST].appendChild(listElement);			

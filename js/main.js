@@ -1,7 +1,7 @@
 /** 
   * @fileoverview 앱이 시작하면 맨 먼저 실행 되어야 할 기능을 작업한 소스 파일입니다.
   * @author 임학순
-  * @version 0.1.1
+  * @version 12.11.26
   * @since 2012.10.22
   *
   * modify 2012.11.14 Nav클릭이벤트 변경 / PC버전 삭제
@@ -21,24 +21,32 @@ var loaded = function()
 		favoriteObject = [];
 	}
 
-	/***진도프레임워크 초기화*/
-	//contentHeight = eval(window.innerHeight-75);
+	/***모바일 vs 데스크탑*/
+	diviceFlag = 0;//0일경우 데스크탑, 1일경우 모바일
+	var mobileKeyWords = new Array('iPhone', 'iPod', 'iPad', 'BlackBerry', 'Android', 'Windows CE', 'LG', 'MOT', 'SAMSUNG', 'SonyEricsson');
 	
-	//document.querySelector('#view').onresize=function(){ alert('아아아아아 운지'); };
+	for (var word in mobileKeyWords){
+		if (navigator.userAgent.match(mobileKeyWords[word]) != null){
+			diviceFlag = 1;//모바일입니다.
+			
+			/***진도프레임워크 초기화*/
+			oScroll = new jindo.m.Scroll("view", {
+				bUseHScroll : false,
+				bUseVScroll : true,
+				bUseMomentum : true,
+				nDeceleration : 0.0005,
+				nHeight : eval(window.innerHeight-75)//Nav영역이 75px입니다.
+			});
+			break;
+		}
+	}
 	
-	//window.onchange
-	/*
-	document.querySelector('#view').addEventListener('resize', function (event) {
-		alert('아아아아아 운지');
-	}, false);
-	*/
+	if ( diviceFlag == 0 ){//데스크탑
+		var viewDiv = document.querySelector("#view");
+		viewDiv.style.overflow = "auto";
+		viewDiv.style.height = "645px";// 720-75 = 645 
+	}
 	
-	oScroll = new jindo.m.Scroll("view", {
-		bUseHScroll : false,
-		bUseVScroll : true,
-		bUseMomentum : false,
-		nHeight : eval(window.innerHeight-75)//Nav영역이 75px입니다.
-	});
 	
 	// 뷰 매니저 초기화 : 뷰매니저는 전역변수입니다.(막코딩의 진수닷 ㅜㅜ)
 	viewManager = ViewManager.getInstance();
@@ -100,4 +108,11 @@ var loaded = function()
 		viewManager.viewChanged(VIEW_ABOUT);
 		event.stopPropagation();
 	}, false);
+}
+
+var resized = function(){
+	if ( diviceFlag == 1 ){//모바일
+		oScroll._htOption.nHeight = eval(window.innerHeight-75)//Nav영역이 75px입니다.
+		oScroll.refresh();
+	}
 }

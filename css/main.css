@@ -1,4 +1,5 @@
 ﻿@charset "utf-8";
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 
 html, body {
    height: 100%;
@@ -6,7 +7,7 @@ html, body {
 }
 		
 * {	margin: 0; padding: 0; border : 0;}
-*:focus { outline:none }
+* { font-family: 'Nanum Gothic'; }
 ul, ol, dl { list-style-type: none; }
 
 
@@ -112,7 +113,6 @@ nav li{
 			float: right;
 			display: table-cell;
 			vertical-align: middle;
-			padding: 5px;
 		}
 		#SearchView .cls-buildingList-fov{
 			display: table-cell;
@@ -120,6 +120,20 @@ nav li{
 			vertical-align: middle;
 			padding: 3px;
 		}
+		#SearchView .cls-buildingList-fov .cls-div{
+			background-image: url("../img/favorite_star_gray.png");
+		}
+		#SearchView .cls-buildingList-fov .cls-div-slt{
+			background-image: url("../img/favorite_star.png");
+		}
+		#SearchView .cls-buildingList-fov div{
+			background-repeat: no-repeat;
+			background-size: 100% 100%;
+			width: 50px;
+			height: 50px;
+		}
+		
+		
 		#SearchView .cls-buildingList-text{
 			display:table-cell;
 			vertical-align:middle;
@@ -158,6 +172,15 @@ nav li{
 		border-bottom: 1px solid #e7e7e7;
 		padding:15px;
 	}
+		#ResultView .cls-resultList h3{
+			padding: 0px 0px 0px 10px;
+
+		}
+		#ResultView .cls-resultList p{
+			padding: 8px 0px 0px 13px;
+			font-size: 14px;
+			color: #747474;
+		}
 
 
 	#ResultView .cls-buildingList-text h2{

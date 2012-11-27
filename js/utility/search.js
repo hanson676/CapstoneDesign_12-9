@@ -17,6 +17,9 @@ function searchECR( buildingName, floorNumber) {
 	var timeObj
 	
 	var today = getTimeStamp();//[0] : 요일 / [1] : 시간
+	/*테스트용*/
+	//today[1] = 1030;//10시30분으로 고정!
+	
 	var futureTime = eval( Number(today[1]) + 30 );
 	if( futureTime > 2359 ){
 		futureTime = 2400;
@@ -72,7 +75,7 @@ function searchECR( buildingName, floorNumber) {
 		if( floorNumber == "전" ){
 			//1단계 : 방문하는 모든 방을 저장한다.
 			if( emptyRoom.length == 0 ){//첫번째 강의실 방문!
-				emptyRoom.push({ classRoom_building:buildingObj[i].classRoom_building, classRoom_floor:buildingObj[i].classRoom_floor, classRoom_Number:buildingObj[i].classRoom_Number, useFlag:0 });;
+				emptyRoom.push({ classRoom_building:buildingObj[i].classRoom_building, classRoom_floor:buildingObj[i].classRoom_floor, classRoom_Number:buildingObj[i].classRoom_Number, NextClassTime:"다음강의 없음", useFlag:0 });
 				
 				//console.log( emptyRoom[emptyRoom.length-1].classRoom_building+ " " + emptyRoom[emptyRoom.length-1].classRoom_floor +"층 " +  emptyRoom[emptyRoom.length-1].classRoom_Number + "호실을 " + "방문했습니다." );
 			}
@@ -81,7 +84,7 @@ function searchECR( buildingName, floorNumber) {
 					emptyRoom.pop();
 				}
 				
-				emptyRoom.push({ classRoom_building:buildingObj[i].classRoom_building, classRoom_floor:buildingObj[i].classRoom_floor, classRoom_Number:buildingObj[i].classRoom_Number, useFlag:0 });;
+				emptyRoom.push({ classRoom_building:buildingObj[i].classRoom_building, classRoom_floor:buildingObj[i].classRoom_floor, classRoom_Number:buildingObj[i].classRoom_Number, NextClassTime:"다음강의 없음", useFlag:0 });
 				//console.log( emptyRoom[emptyRoom.length-1].classRoom_building+ " " + emptyRoom[emptyRoom.length-1].classRoom_floor +"층 " +  emptyRoom[emptyRoom.length-1].classRoom_Number + "호실을 " + "방문했습니다." );
 			}
 			else{//같은강의실을 검사중입니다.				
@@ -94,6 +97,10 @@ function searchECR( buildingName, floorNumber) {
 			timeObj = convertTime( buildingObj[i].classTime_time );//startTime, endTime		
 			
 			if( today[0] == buildingObj[i].classTime_weekDay ){
+				if( timeObj.startTime > today[1] ){
+					emptyRoom[emptyRoom.length-1].NextClassTime = "다음강의 : " +  buildingObj[i].className +"<br/>강의시간 : (" +timeObj.startTime.substr(0,2) + "시" + timeObj.startTime.substr(2,4)+ "분" + ")";
+				}
+					
 				if( (timeObj.startTime < today[1] && today[1] < timeObj.endTime) || ( (timeObj.startTime < futureTime && futureTime < timeObj.endTime) ) ){//현재시간 or 30분뒤 수업중이면 제외
 					//console.log( emptyRoom[emptyRoom.length-1].classRoom_floor +   leadingZeros(emptyRoom[emptyRoom.length-1].classRoom_Number, 2)  + "호실은 " + buildingObj[i].className+ "수업중입니다." );
 					emptyRoom[emptyRoom.length-1].useFlag = 1;
@@ -104,8 +111,7 @@ function searchECR( buildingName, floorNumber) {
 			if(buildingObj[i].classRoom_floor == floorNumber){//같은층인 객체만 검색				
 				//1단계 : 방문하는 모든 방을 저장한다.
 				if( emptyRoom.length == 0 ){//첫번째 강의실 방문!
-					emptyRoom.push({ classRoom_building:buildingObj[i].classRoom_building, classRoom_floor:buildingObj[i].classRoom_floor, classRoom_Number:buildingObj[i].classRoom_Number, useFlag:0 });;
-					
+					emptyRoom.push({ classRoom_building:buildingObj[i].classRoom_building, classRoom_floor:buildingObj[i].classRoom_floor, classRoom_Number:buildingObj[i].classRoom_Number, NextClassTime:"다음강의 없음", useFlag:0 });
 					//console.log( emptyRoom[emptyRoom.length-1].classRoom_building+ " " + emptyRoom[emptyRoom.length-1].classRoom_floor +"층 " +  emptyRoom[emptyRoom.length-1].classRoom_Number + "호실을 " + "방문했습니다." );
 				}
 				else if( emptyRoom[emptyRoom.length-1].classRoom_Number != buildingObj[i].classRoom_Number ){ //다음 강의실로 이동했을때
@@ -113,7 +119,7 @@ function searchECR( buildingName, floorNumber) {
 						emptyRoom.pop();
 					}
 					
-					emptyRoom.push({ classRoom_building:buildingObj[i].classRoom_building, classRoom_floor:buildingObj[i].classRoom_floor, classRoom_Number:buildingObj[i].classRoom_Number, useFlag:0 });;
+					emptyRoom.push({ classRoom_building:buildingObj[i].classRoom_building, classRoom_floor:buildingObj[i].classRoom_floor, classRoom_Number:buildingObj[i].classRoom_Number, NextClassTime:"다음강의 없음", useFlag:0 });
 					//console.log( emptyRoom[emptyRoom.length-1].classRoom_building+ " " + emptyRoom[emptyRoom.length-1].classRoom_floor +"층 " +  emptyRoom[emptyRoom.length-1].classRoom_Number + "호실을 " + "방문했습니다." );
 				}
 				else{//같은강의실을 검사중입니다.				
@@ -125,7 +131,11 @@ function searchECR( buildingName, floorNumber) {
 				//2단계 : 현재시간과 TimeTable을 비교하는 알고리즘
 				timeObj = convertTime( buildingObj[i].classTime_time );//startTime, endTime		
 				
-				if( today[0] == buildingObj[i].classTime_weekDay ){
+				if( today[0] == buildingObj[i].classTime_weekDay ){//오늘과 같은 요일인 강의만 검사합니다.
+					if( timeObj.startTime > today[1] ){
+						emptyRoom[emptyRoom.length-1].NextClassTime = "다음강의 : " +  buildingObj[i].className +"<br/>강의시간 : (" +timeObj.startTime.substr(0,2) + "시" + timeObj.startTime.substr(2,4)+ "분" + ")";
+					}
+					
 					if( (timeObj.startTime < today[1] && today[1] < timeObj.endTime) || ( (timeObj.startTime < futureTime && futureTime < timeObj.endTime) ) ){//현재시간 or 30분뒤 수업중이면 제외
 						//console.log( emptyRoom[emptyRoom.length-1].classRoom_floor +   leadingZeros(emptyRoom[emptyRoom.length-1].classRoom_Number, 2)  + "호실은 " + buildingObj[i].className+ "수업중입니다." );
 						emptyRoom[emptyRoom.length-1].useFlag = 1;
@@ -134,6 +144,8 @@ function searchECR( buildingName, floorNumber) {
 			}
 		}
 	};
-	
+	console.log("결과값입니다.")
+	console.dir( emptyRoom );
 	return emptyRoom;
+	
 }

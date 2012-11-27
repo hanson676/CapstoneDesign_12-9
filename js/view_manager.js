@@ -87,8 +87,12 @@ function ViewManager() {
 			_currentView = view;
 			_currentView.resume();// 현재 View를 활성화 합니다.
 			
-			//scroller 갱신		
-			setTimeout("oScroll.refresh(); oScroll.scrollTo(0, 0);", 300);	
+			if( diviceFlag == 1 ){
+				//scroller 갱신
+				oScroll.refresh(); 
+				oScroll.scrollTo(0, 0);
+			}	
+			
 		}
 			
 		
@@ -99,8 +103,11 @@ function ViewManager() {
 		_currentView.pause();
 		_currentView.resume();// 현재 View를 활성화 합니다.
 		
-		setTimeout("oScroll.refresh()", 300);
-		oScroll.scrollTo(0, 0);
+		if( diviceFlag == 1 ){
+			//scroller 갱신
+			oScroll.refresh(); 
+			oScroll.scrollTo(0, 0);
+		}
 	};
 };
 /**

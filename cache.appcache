@@ -1,8 +1,9 @@
 ﻿CACHE MANIFEST
-# version 0.1.0
+# version 12.11.26
 
 CACHE:
 ./index.html
+./m.index.html
 
 ./css/main.css
 
