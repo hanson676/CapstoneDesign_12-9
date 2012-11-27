@@ -90,9 +90,8 @@ function ViewManager() {
 			if( diviceFlag == 1 ){
 				//scroller 갱신
 				oScroll.refresh(); 
-				oScroll.scrollTo(0, 0);
-			}	
-			
+				oScroll.scrollTo(0, 0);							
+			}			
 		}
 			
 		

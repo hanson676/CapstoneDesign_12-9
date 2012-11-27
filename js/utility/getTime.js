@@ -33,7 +33,7 @@ function leadingZeros(n, digits) {
 	
 	
 	if ( str[0].length < digits) {
-		for (i = 0; i < digits - str[0].length; i++)
+		for (var i = 0; i < digits - str[0].length; i++)
 			zero += '0';
 	}	
 	if( str[1] ){
@@ -58,7 +58,7 @@ function convertTime( code ){
 			timeObj.endTime	= '0900';
 			break;
 		case '1' : 
-			timeObj.startTime	= '0900'
+			timeObj.startTime	= '0900';
 			timeObj.endTime	= '1000';
 			break;
 		case '2' : 
@@ -154,52 +154,3 @@ function convertTime( code ){
 	
 	return timeObj;
 }
-
-/*
-자바스크립트 현재시간 구하기
- 
-function getTimeStamp(s1) {
- //현재시간 구하기
- var d = new Date();
- 
- if (s1 == 1) {
-  // 20080301103025 표현식
-  var s =
-  leadingZeros(d.getFullYear(), 4) +
-  leadingZeros(d.getMonth() + 1, 2) +
-  leadingZeros(d.getDate(), 2) +
-  
-  leadingZeros(d.getHours(), 2) +
-  leadingZeros(d.getMinutes(), 2) +
-  leadingZeros(d.getSeconds(), 2);
- }
- else {
-  // 2008-03-01 10:30:25 표현식
-  var s =
-  leadingZeros(d.getFullYear(), 4) + '-' +
-  leadingZeros(d.getMonth() + 1, 2) + '-' +
-  leadingZeros(d.getDate(), 2) + ' ' +
-  
-  leadingZeros(d.getHours(), 2) + ':' +
-  leadingZeros(d.getMinutes(), 2) + ':' +
-  leadingZeros(d.getSeconds(), 2);
- }
- return s;
-}
-function leadingZeros(n, digits) {
- // 1 -> 01 과 같이 변경하기
- var zero = '';
- n = n.toString();
- 
- if (n.length < digits) {
-  for (i = 0; i < digits - n.length; i++)
-  zero += '0';
- }
- return zero + n;
-}
-
-
-[출처] 자바스크립트 현재시간 구하기|작성자 woohabee
-http://blog.naver.com/woohabee?Redirect=Log&logNo=120051799229
-
-*/

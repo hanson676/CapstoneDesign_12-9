@@ -43,6 +43,6 @@ View.prototype = {
 	
 	onCreate : null,
 	onResume : null,
-	onPause : null,
+	onPause : null
 };
 

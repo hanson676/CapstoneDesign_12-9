@@ -1,5 +1,5 @@
 ﻿CACHE MANIFEST
-# version 12.11.26
+# version 121128.0210
 
 CACHE:
 ./index.html
@@ -8,18 +8,18 @@ CACHE:
 ./css/main.css
 
 ./img/about.png
-./img/building_7.png
-./img/building_art.png
-./img/building_bugak.png
-./img/building_business.png
-./img/building_design.png
-./img/building_engineering.png
-./img/building_gymnasium.png
-./img/building_hyungseol.png
-./img/building_international.png
-./img/building_law.png
-./img/building_science.png
-./img/building_student_union.png
+./img/building_7.jpg
+./img/building_art.jpg
+./img/building_bugak.jpg
+./img/building_business.jpg
+./img/building_design.jpg
+./img/building_engineering.jpg
+./img/building_gymnasium.jpg
+./img/building_hyungseol.jpg
+./img/building_international.jpg
+./img/building_law.jpg
+./img/building_science.jpg
+./img/building_student_union.jpg
 ./img/favorite_star.png
 ./img/favorite_star_gray.png
 ./img/icon.png
