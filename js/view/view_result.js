@@ -66,7 +66,7 @@ function ResultView()
 			var NextClassStr = "";
 			
 			if( v.NextClassFlg == 0){
-				NextClassStr = "다음강의 없음";
+				NextClassStr = "강의 없음";
 			}
 			else{
 				NextClassStr = "다음강의 : " +  v.NextClassName +"<br/>강의시간 : " +v.NextClassTime.substr(0,2) + "시 " + v.NextClassTime.substr(2,4)+ "분";

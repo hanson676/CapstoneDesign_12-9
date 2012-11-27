@@ -87,7 +87,7 @@ function searchECR( buildingName, floorNumber) {
 					useFlag: 0,
 					NextClassFlg: 0, 
 					NextClassName: "", 
-					NextClassTime: "", 
+					NextClassTime: ""
 				});
 			}
 			else if( emptyRoom[emptyRoom.length-1].classRoom_Number != buildingObj[i].classRoom_Number ){ //다음 강의실로 이동했을때
@@ -101,7 +101,7 @@ function searchECR( buildingName, floorNumber) {
 					useFlag: 0,
 					NextClassFlg: 0, 
 					NextClassName: "", 
-					NextClassTime: "", 
+					NextClassTime: ""
 				});
 			}
 			else{//같은강의실을 검사중입니다.				
@@ -146,7 +146,7 @@ function searchECR( buildingName, floorNumber) {
 						useFlag: 0,
 						NextClassFlg: 0, 
 						NextClassName: "", 
-						NextClassTime: "", 
+						NextClassTime: ""
 					});
 				}
 				else if( emptyRoom[emptyRoom.length-1].classRoom_Number != buildingObj[i].classRoom_Number ){ //다음 강의실로 이동했을때
@@ -160,7 +160,7 @@ function searchECR( buildingName, floorNumber) {
 						useFlag: 0,
 						NextClassFlg: 0, 
 						NextClassName: "", 
-						NextClassTime: "", 
+						NextClassTime: ""
 					});
 				}
 				else{//같은강의실을 검사중입니다.				

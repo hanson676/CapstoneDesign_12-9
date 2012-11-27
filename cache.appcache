@@ -6,6 +6,7 @@ CACHE:
 ./m.index.html
 
 ./css/main.css
+./css/desktop.css
 
 ./img/about.png
 ./img/building_7.jpg
